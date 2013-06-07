@@ -10,4 +10,10 @@
 
 @interface ViewController : UIViewController
 
+
+- (IBAction)loadInstruction:(id)sender;
+- (IBAction)loadGame:(id)sender;
+- (IBAction)loadLetterView:(id)sender;
+
+
 @end

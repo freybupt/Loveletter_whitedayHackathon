@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "InstructionViewController.h"
+#import "GameViewController.h"
+#import "LetterViewController.h"
 
 @implementation ViewController
 
@@ -16,11 +19,33 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - load
+
+- (IBAction)loadInstruction:(id)sender{
+    InstructionViewController *viewController = [[InstructionViewController alloc] initWithNibName:@"InstructionViewController" bundle:nil];
+    [self presentModalViewController:viewController animated:YES];
+
+}
+
+- (IBAction)loadGame:(id)sender{
+    GameViewController *viewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+    [self presentModalViewController:viewController animated:YES];
+    
+}
+
+- (IBAction)loadLetterView:(id)sender{
+    LetterViewController *viewController= [[LetterViewController alloc] initWithNibName:@"LetterViewController" bundle:nil];
+    [self presentModalViewController:viewController animated:YES];
+//    [viewController.view setFrame:CGRectMake(0, 0, viewController.view.frame.size.width, viewController.view.frame.size.height)];
+//    [self.view addSubview:viewController.view];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -54,7 +79,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft); //|| interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 @end

@@ -7,13 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
 
 @class ViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate  : NSObject <UIApplicationDelegate, UIAccelerometerDelegate> {
+    UIWindow *window;
+//    GameViewController *glView;
+	UIAccelerationValue accel[3];
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ViewController *viewController;
+
+//@property (retain, nonatomic) GameViewController *glView;
+
 
 @end
